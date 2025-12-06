@@ -2,192 +2,377 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>C_J • Official Links</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg1: #050309;
+      --bg2: #140b21;
+      --accent: #ff4b2b; /* neon red-orange */
+      --accent-soft: #ffb347;
+      --text-main: #f5f5f5;
+      --text-muted: #aaaaaa;
+      --card-bg: #100b1b;
+      --button-bg: rgba(15, 10, 25, 0.9);
+      --button-border: rgba(255, 75, 43, 0.6);
+      --button-hover: rgba(255, 75, 43, 0.15);
+      --shadow-strong: 0 0 32px rgba(255, 75, 43, 0.45);
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+    }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #ff3b3b22 0, #050509 45%, #000000 100%);
-      color: #f5f5f5;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, #2b1338 0, transparent 55%),
+        radial-gradient(circle at bottom, #050814 0, transparent 60%),
+        linear-gradient(160deg, var(--bg1), var(--bg2));
+      color: var(--text-main);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      padding: 28px 16px;
     }
+
     .frame {
-      max-width: 480px;
       width: 100%;
-      border-radius: 18px;
-      padding: 28px 22px 26px;
-      background:
-        radial-gradient(circle at top left, #ff404010 0, transparent 55%),
-        radial-gradient(circle at bottom right, #ff404018 0, transparent 55%),
-        #050509dd;
-      box-shadow:
-        0 0 55px rgba(255, 59, 59, 0.25),
-        0 14px 40px rgba(0, 0, 0, 0.8);
+      max-width: 430px;
+      background: radial-gradient(circle at top,
+        rgba(255, 75, 43, 0.22) 0,
+        rgba(0, 0, 0, 0.88) 52%);
+      border-radius: 30px;
       border: 1px solid rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(12px);
+      box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.85),
+        0 0 80px rgba(255, 75, 43, 0.25);
+      padding: 28px 22px 24px;
+      backdrop-filter: blur(18px);
     }
-    .title-block {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .ep-tag {
+
+    .top-tagline {
       font-size: 11px;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: #ff8a8a;
+      color: var(--accent-soft);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-size: 24px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-align: center;
       margin-bottom: 4px;
     }
-    .main-title {
-      font-size: 26px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: #ffe3e3;
-      text-shadow:
-        0 0 6px rgba(255, 75, 75, 0.9),
-        0 0 16px rgba(255, 75, 75, 0.55);
-      margin-bottom: 6px;
+
+    .hero-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 18px;
     }
-    .artist-name {
-      font-size: 14px;
-      letter-spacing: 0.26em;
-      text-transform: uppercase;
-      color: #b9b9c7;
-      margin-bottom: 12px;
+
+    .hero-sub strong {
+      color: var(--accent-soft);
+      font-weight: 500;
     }
-    .subtitle {
+
+    .avatar-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .avatar-ring {
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      padding: 3px;
+      background: conic-gradient(
+        from 210deg,
+        rgba(255, 75, 43, 0.1),
+        rgba(255, 179, 71, 0.65),
+        rgba(255, 75, 43, 0.9),
+        rgba(255, 75, 43, 0.15)
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 28px rgba(255, 75, 43, 0.5);
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-position: center;
+      background-size: cover;
+      background-image: url("https://spcbridges-cyber.github.io/cj-official-links/avatar-placeholder.jpg");
+      background-color: #111;
+      border: 2px solid rgba(0, 0, 0, 0.75);
+    }
+
+    .now-playing {
+      text-align: center;
       font-size: 12px;
-      color: #bfbfcb;
-      opacity: 0.9;
+      color: var(--text-muted);
+      margin-bottom: 18px;
     }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(4, 255, 171, 0.08);
+      border: 1px solid rgba(4, 255, 171, 0.4);
+      color: #d9fff1;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 4px;
+    }
+
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #04ffab;
+      box-shadow: 0 0 10px #04ffab;
+    }
+
+    .now-playing strong {
+      color: var(--accent-soft);
+      font-weight: 500;
+    }
+
     .links {
-      margin-top: 22px;
       display: flex;
       flex-direction: column;
       gap: 10px;
+      margin-bottom: 18px;
     }
-    .link-btn {
-      display: block;
-      width: 100%;
-      padding: 11px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+
+    a.link-button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px 15px;
+      border-radius: var(--radius-pill);
+      background: var(--button-bg);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
       text-decoration: none;
-      color: #f5f5f5;
       font-size: 14px;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      text-align: center;
-      background:
-        radial-gradient(circle at top, rgba(255, 64, 64, 0.14) 0, transparent 52%),
-        linear-gradient(90deg, #161620, #13131b);
       position: relative;
       overflow: hidden;
-      transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease, background 0.18s ease;
     }
-    .link-btn span {
-      position: relative;
-      z-index: 2;
-    }
-    .link-btn::before {
+
+    a.link-button::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(120deg, rgba(255, 90, 90, 0.32), transparent 40%, rgba(255, 90, 90, 0.18));
+      background: radial-gradient(circle at 0 0,
+        rgba(255, 179, 71, 0.25),
+        transparent 60%);
       opacity: 0;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.2s ease-out;
     }
-    .link-btn:hover {
-      transform: translateY(-1px);
-      border-color: rgba(255, 137, 137, 0.8);
-      box-shadow:
-        0 0 20px rgba(255, 81, 81, 0.42),
-        0 10px 25px rgba(0, 0, 0, 0.8);
-      background:
-        radial-gradient(circle at top, rgba(255, 64, 64, 0.32) 0, transparent 55%),
-        linear-gradient(90deg, #1c1c28, #171722);
-    }
-    .link-btn:hover::before {
+
+    a.link-button:hover::before {
       opacity: 1;
     }
-    .section-label {
+
+    a.link-button:hover {
+      border-color: var(--button-border);
+      background: linear-gradient(
+        135deg,
+        rgba(255, 75, 43, 0.12),
+        rgba(5, 3, 15, 0.98)
+      );
+      box-shadow: var(--shadow-strong);
+      transform: translateY(-1px);
+    }
+
+    .link-main {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .link-label {
       font-size: 11px;
+      color: var(--accent-soft);
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #86869a;
-      margin-top: 14px;
-      margin-bottom: 6px;
+      letter-spacing: 0.16em;
     }
+
+    .link-title {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .link-icon {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    .row-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .mini {
+      font-size: 11px;
+      padding: 8px 10px;
+      letter-spacing: 0.12em;
+    }
+
+    .mini .link-title {
+      font-size: 11px;
+    }
+
     .footer {
-      margin-top: 18px;
       text-align: center;
-      font-size: 10px;
-      color: #79798b;
+      font-size: 11px;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 9px;
+      margin-top: 4px;
     }
+
     .footer span {
-      color: #ff9a9a;
+      color: var(--accent-soft);
     }
-    @media (max-width: 480px) {
+
+    .footer small {
+      display: block;
+      font-size: 10px;
+      margin-top: 2px;
+    }
+
+    @media (max-width: 360px) {
       .frame {
         padding: 22px 16px 20px;
       }
-      .main-title {
+      .hero-title {
         font-size: 22px;
-        letter-spacing: 0.2em;
+      }
+      a.link-button {
+        padding: 10px 12px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="frame">
-    <div class="title-block">
-      <div class="ep-tag">Official Links</div>
-      <div class="main-title">LIFE IS BEAUTIFUL</div>
-      <div class="artist-name">C_J</div>
-      <div class="subtitle">Listen · Follow · Support · Book</div>
+  <main class="frame">
+    <div class="top-tagline">OFFICIAL LINKS</div>
+    <h1 class="hero-title">C_J</h1>
+    <p class="hero-sub">
+      Indie / alternative rock artist<br />
+      <strong>dark, cinematic guitars • honest lyrics</strong>
+    </p>
+
+    <div class="avatar-wrap">
+      <div class="avatar-ring">
+        <div class="avatar"></div>
+      </div>
     </div>
 
-    <div class="section-label">Music</div>
-    <div class="links">
-      <a class="link-btn" href="https://open.spotify.com/artist/2YVPBrRzDMRfRimq2jCUxD?si=CDgJne8HQ5KA8q9c91DQ0w" target="_blank" rel="noopener noreferrer">
-        <span>Spotify</span>
+    <div class="now-playing">
+      <div class="pill">
+        <span class="pill-dot"></span>
+        <span>Now Streaming</span>
+      </div>
+      <div><strong>“Life Is Beautiful” EP</strong> &bull; “3 Song EP”</div>
+    </div>
+
+    <section class="links">
+      <a class="link-button" href="https://open.spotify.com/artist/2YVPBrRzDMRfRimq2jCUxD" target="_blank" rel="noopener">
+        <div class="link-main">
+          <span class="link-label">Listen</span>
+          <span class="link-title">Spotify • C_J</span>
+        </div>
+        <span class="link-icon">🎧</span>
       </a>
-      <a class="link-btn" href="https://youtube.com/@c_j-e8s?si=0zKpmircR62HuseZ" target="_blank" rel="noopener noreferrer">
-        <span>YouTube</span>
+
+      <a class="link-button" href="https://youtube.com/@c_j-e8s" target="_blank" rel="noopener">
+        <div class="link-main">
+          <span class="link-label">Watch</span>
+          <span class="link-title">YouTube • Official Channel</span>
+        </div>
+        <span class="link-icon">▶️</span>
+      </a>
+
+      <a class="link-button" href="https://www.instagram.com/chris_j_bridges" target="_blank" rel="noopener">
+        <div class="link-main">
+          <span class="link-label">Follow</span>
+          <span class="link-title">Instagram • @chris_j_bridges</span>
+        </div>
+        <span class="link-icon">📸</span>
+      </a>
+
+      <a class="link-button" href="https://www.facebook.com/share/1JLv9FtJwB" target="_blank" rel="noopener">
+        <div class="link-main">
+          <span class="link-label">Connect</span>
+          <span class="link-title">Facebook • C_J Bridges</span>
+        </div>
+        <span class="link-icon">📘</span>
+      </a>
+
+      <a class="link-button" href="https://www.tiktok.com/@chrisjbridges1" target="_blank" rel="noopener">
+        <div class="link-main">
+          <span class="link-label">Clips</span>
+          <span class="link-title">TikTok • @chrisjbridges1</span>
+        </div>
+        <span class="link-icon">🎬</span>
+      </a>
+
+      <a class="link-button" href="https://venmo.com/u/C-Bridges-2" target="_blank" rel="noopener">
+        <div class="link-main">
+          <span class="link-label">Support</span>
+          <span class="link-title">Tip Jar • Venmo @C-Bridges-2</span>
+        </div>
+        <span class="link-icon">💸</span>
+      </a>
+    </section>
+
+    <div class="row-2">
+      <a class="link-button mini" href="mailto:cj.indie.music@gmail.com" target="_blank" rel="noopener">
+        <div class="link-main">
+          <span class="link-label">Bookings</span>
+          <span class="link-title">cj.indie.music@gmail.com</span>
+        </div>
+      </a>
+
+      <a class="link-button mini" href="https://open.spotify.com/album/placeholder" target="_blank" rel="noopener">
+        <div class="link-main">
+          <span class="link-label">Featured</span>
+          <span class="link-title">“Shattered Glass” • Single</span>
+        </div>
       </a>
     </div>
 
-    <div class="section-label">Social</div>
-    <div class="links">
-      <a class="link-btn" href="https://www.instagram.com/chris_j_bridges?igsh=MWpiNTZvNzRwNmxvcw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">
-        <span>Instagram</span>
-      </a>
-      <a class="link-btn" href="https://www.facebook.com/share/1JLv9FtJwB/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
-        <span>Facebook</span>
-      </a>
-      <a class="link-btn" href="https://www.tiktok.com/@chrisjbridges1?_r=1&_t=ZP-91z3F8MngQI" target="_blank" rel="noopener noreferrer">
-        <span>TikTok</span>
-      </a>
-    </div>
-
-    <div class="section-label">Support & Booking</div>
-    <div class="links">
-      <a class="link-btn" href="https://venmo.com/u/C-Bridges-2" target="_blank" rel="noopener noreferrer">
-        <span>Tip Jar (Venmo)</span>
-      </a>
-      <a class="link-btn" href="mailto:cj.indie.music@gmail.com" target="_blank" rel="noopener noreferrer">
-        <span>Booking &amp; Contact</span>
-      </a>
-    </div>
-
-    <div class="footer">
-      <span>Life Is Beautiful</span> era · Official C_J link hub
-    </div>
-  </div>
+    <footer class="footer">
+      <span>Life Is Beautiful</span> • official link hub
+      <small>© C_J • indie / alternative rock</small>
+    </footer>
+  </main>
 </body>
 </html>
